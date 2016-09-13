@@ -1,9 +1,8 @@
 uint64_t time[string];
 
-syscall::bind:entry,
-syscall::listen:entry,
-syscall::accept:entry,
-syscall::pollsys:entry,
+syscall::connect:entry,
+syscall::poll:entry,
+syscall::close:entry,
 syscall::read:entry,
 syscall::write:entry
 / execname == "nc" /
@@ -12,10 +11,9 @@ syscall::write:entry
 	printf("%s(%d, 0x%x, %4d)\n", probefunc, arg0, arg1, arg2);
 }
 
-syscall::bind:return,
-syscall::listen:return,
-syscall::accept:return,
-syscall::pollsys:return,
+syscall::connect:entry,
+syscall::poll:entry,
+syscall::close:entry,
 syscall::read:return,
 syscall::write:return
 / execname == "nc" && time[probefunc] > 0 /
