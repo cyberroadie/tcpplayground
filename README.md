@@ -18,6 +18,6 @@ Execute the following commands each in their own terminal:
 ## Client
 Same for client, each in their own terminal
 
-    $ sudo dtrace -q -s /vagrant/dtrace_server.d
+    $ sudo dtrace -q -s /vagrant/dtrace_client.d
     $ sudo dtrace -q -s /vagrant/tcpstate.d
     $ nc -k -l 10.0.1.10 8080
